@@ -52,7 +52,7 @@ public class SubElemento implements Serializable {
     @Size(min = 0, max = 250)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "subElemento", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "subElemento", fetch = FetchType.LAZY)
     private List<CuentaContable> cuentaContableList;
 
     public SubElemento() {

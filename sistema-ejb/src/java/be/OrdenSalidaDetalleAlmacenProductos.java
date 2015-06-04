@@ -65,13 +65,13 @@ public class OrdenSalidaDetalleAlmacenProductos implements Serializable {
     @Column(name = "cantidad")
     private int cantidad;
     @JoinColumn(name = "id_estado_orden_salida_detalle_almacen_productos", referencedColumnName = "id_estado_orden_salida_detalle_almacen_productos")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private EstadoOrdenSalidaDetalleAlmacenProductos estadoOrdenSalidaDetalleAlmacenProductos;
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Cliente cliente;
     @JoinColumn(name = "id_detalle_almacen_productos", referencedColumnName = "id_detalle_almacen_productos")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private DetalleAlmacenProductos detalleAlmacenProductos;
 
     public OrdenSalidaDetalleAlmacenProductos() {

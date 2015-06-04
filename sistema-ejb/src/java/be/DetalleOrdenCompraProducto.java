@@ -56,10 +56,10 @@ public class DetalleOrdenCompraProducto implements Serializable {
     @Column(name = "sub_total")
     private BigDecimal subTotal;
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
     @JoinColumn(name = "id_orden_compra", referencedColumnName = "id_orden_compra", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private OrdenCompra ordenCompra;
 
     public DetalleOrdenCompraProducto() {

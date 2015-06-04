@@ -56,9 +56,9 @@ public class IgvFactura implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
     @JoinColumn(name = "id_estado_igv", referencedColumnName = "id_estado_igv")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private EstadoIgv estadoIgv;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "igvFactura", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "igvFactura", fetch = FetchType.LAZY)
     private List<FacturaVenta> facturaVentaList;
 
     public IgvFactura() {

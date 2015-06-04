@@ -50,10 +50,10 @@ public class VentaRapida implements Serializable {
     @Column(name = "fecha_venta")
     @Temporal(TemporalType.DATE)
     private Date fechaVenta;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ventaRapida", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ventaRapida", fetch = FetchType.LAZY)
     private List<DetalleVentaRapidaProducto> detalleVentaRapidaProductoList;
     @JoinColumn(name = "id_tienda", referencedColumnName = "id_tienda")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tienda tienda;
 
     public VentaRapida() {

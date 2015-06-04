@@ -61,10 +61,10 @@ public class IngresoMateriaPrimaTienda implements Serializable {
     @Column(name = "motivo")
     private String motivo;
     @JoinColumn(name = "id_materia_prima", referencedColumnName = "id_materia_prima")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private MateriaPrima materiaPrima;
     @JoinColumn(name = "id_tienda", referencedColumnName = "id_tienda")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tienda tienda;
 
     public IngresoMateriaPrimaTienda() {

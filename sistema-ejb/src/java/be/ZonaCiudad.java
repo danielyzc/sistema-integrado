@@ -52,7 +52,7 @@ public class ZonaCiudad implements Serializable {
     @Size(min = 0, max = 2)
     @Column(name = "flag_estado")
     private String flagEstado;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "zonaCiudad", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "zonaCiudad", fetch = FetchType.LAZY)
     private List<Cliente> clienteList;
 
     public ZonaCiudad() {

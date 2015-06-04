@@ -89,30 +89,30 @@ public class Venta implements Serializable {
     @Size(max = 50)
     @Column(name = "factura_relacionada")
     private String facturaRelacionada;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "venta", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "venta", fetch = FetchType.LAZY)
     private List<ContratoFumigacion> contratoFumigacionList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "venta", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "venta", fetch = FetchType.LAZY)
     private List<Cambio> cambioList;
-    @OneToMany(mappedBy = "venta", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "venta", fetch = FetchType.LAZY)
     private List<PagoVentaCredito> pagoVentaCreditoList;
     @JoinColumn(name = "id_estado_venta", referencedColumnName = "id_estado_venta")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private EstadoVenta estadoVenta;
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Cliente cliente;
     @JoinColumn(name = "id_tipo_venta", referencedColumnName = "id_tipo_venta")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private TipoVenta tipoVenta;
     @JoinColumn(name = "id_empleado", referencedColumnName = "id_empleado")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Empleado empleado;
     @JoinColumn(name = "id_tienda", referencedColumnName = "id_tienda")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tienda tienda;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "venta", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "venta", fetch = FetchType.LAZY)
     private List<DetalleVentaProducto> detalleVentaProductoList;
-    @OneToMany(mappedBy = "venta", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "venta", fetch = FetchType.LAZY)
     private List<NotaCredito> notaCreditoList;
 
     public Venta() {

@@ -51,7 +51,7 @@ public class UnidadMedida implements Serializable {
     @Size(min = 0, max = 170)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(mappedBy = "unidadMedida", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "unidadMedida", fetch = FetchType.LAZY)
     private List<MateriaPrima> materiaPrimaList;
 
     public UnidadMedida() {

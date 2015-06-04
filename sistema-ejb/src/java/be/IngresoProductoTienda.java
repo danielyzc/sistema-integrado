@@ -72,13 +72,13 @@ public class IngresoProductoTienda implements Serializable {
     @Column(name = "costo_unitario")
     private BigDecimal costoUnitario;
     @JoinColumn(name = "id_ubicacion_fisica", referencedColumnName = "id_ubicacion_fisica")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private UbicacionFisica ubicacionFisica;
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
     @JoinColumn(name = "id_tienda", referencedColumnName = "id_tienda")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tienda tienda;
 
     public IngresoProductoTienda() {

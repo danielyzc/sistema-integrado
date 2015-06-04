@@ -52,7 +52,7 @@ public class EstadoIgv implements Serializable {
     @Size(min = 0, max = 170)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estadoIgv", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estadoIgv", fetch = FetchType.LAZY)
     private List<IgvFactura> igvFacturaList;
 
     public EstadoIgv() {

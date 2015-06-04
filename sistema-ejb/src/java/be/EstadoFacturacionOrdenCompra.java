@@ -52,7 +52,7 @@ public class EstadoFacturacionOrdenCompra implements Serializable {
     @Size(min = 0, max = 100)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estadoFacturacionOrdenCompra", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estadoFacturacionOrdenCompra", fetch = FetchType.LAZY)
     private List<OrdenCompra> ordenCompraList;
 
     public EstadoFacturacionOrdenCompra() {

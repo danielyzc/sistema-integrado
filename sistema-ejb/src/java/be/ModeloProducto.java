@@ -52,7 +52,7 @@ public class ModeloProducto implements Serializable {
     @Size(min = 0, max = 250)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "modeloProducto", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "modeloProducto", fetch = FetchType.LAZY)
     private List<Producto> productoList;
 
     public ModeloProducto() {

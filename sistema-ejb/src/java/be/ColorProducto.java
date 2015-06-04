@@ -52,7 +52,7 @@ public class ColorProducto implements Serializable {
     @Size(min = 0, max = 170)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "colorProducto", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "colorProducto", fetch = FetchType.LAZY)
     private List<Producto> productoList;
 
     public ColorProducto() {

@@ -99,10 +99,10 @@ public class ReporteDesratizacion implements Serializable {
     @Column(name = "requerimientos_dia_siguiente")
     private String requerimientosDiaSiguiente;
     @JoinColumn(name = "id_empleado", referencedColumnName = "id_empleado")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Empleado empleado;
     @JoinColumn(name = "id_contrato_fumigacion", referencedColumnName = "id_contrato_fumigacion")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ContratoFumigacion contratoFumigacion;
 
     public ReporteDesratizacion() {

@@ -52,7 +52,7 @@ public class TipoEmpleado implements Serializable {
     @Size(min = 0, max = 170)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoEmpleado", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoEmpleado", fetch = FetchType.LAZY)
     private List<Empleado> empleadoList;
 
     public TipoEmpleado() {

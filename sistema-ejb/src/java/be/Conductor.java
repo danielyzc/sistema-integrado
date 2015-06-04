@@ -73,7 +73,7 @@ public class Conductor implements Serializable {
     @Column(name = "fecha_registro")
     @Temporal(TemporalType.DATE)
     private Date fechaRegistro;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "conductor", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "conductor", fetch = FetchType.LAZY)
     private List<GuiaRemicion> guiaRemicionList;
 
     public Conductor() {

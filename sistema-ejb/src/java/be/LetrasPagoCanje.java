@@ -67,10 +67,10 @@ public class LetrasPagoCanje implements Serializable {
     @Column(name = "observaciones")
     private String observaciones;
     @JoinColumn(name = "id_canje_orden_compra", referencedColumnName = "id_canje_orden_compra")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private CanjeOrdenCompra canjeOrdenCompra;
     @JoinColumn(name = "id_estado_letras_pago_canje", referencedColumnName = "id_estado_letras_pago_canje")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private EstadoLetrasPagoCanje estadoLetrasPagoCanje;
 
     public LetrasPagoCanje() {

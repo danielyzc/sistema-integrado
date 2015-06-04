@@ -54,16 +54,16 @@ public class MateriaPrima implements Serializable {
     @Size(min = 0, max = 200)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "materiaPrima", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "materiaPrima", fetch = FetchType.LAZY)
     private List<IngresoMateriaPrimaTienda> ingresoMateriaPrimaTiendaList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "materiaPrima", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "materiaPrima", fetch = FetchType.LAZY)
     private List<DetalleFormulacionInsumos> detalleFormulacionInsumosList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "materiaPrima", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "materiaPrima", fetch = FetchType.LAZY)
     private List<StockMateriaPrimaTiendaOrigen> stockMateriaPrimaTiendaOrigenList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "materiaPrima", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "materiaPrima", fetch = FetchType.LAZY)
     private List<SalidaMateriaPrimaTienda> salidaMateriaPrimaTiendaList;
     @JoinColumn(name = "id_unidad_medida", referencedColumnName = "id_unidad_medida")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private UnidadMedida unidadMedida;
 
     public MateriaPrima() {

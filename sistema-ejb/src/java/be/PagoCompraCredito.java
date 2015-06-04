@@ -61,10 +61,10 @@ public class PagoCompraCredito implements Serializable {
     @Column(name = "cantidad")
     private BigDecimal cantidad;
     @JoinColumn(name = "id_empleado", referencedColumnName = "id_empleado")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Empleado empleado;
     @JoinColumn(name = "id_orden_compra", referencedColumnName = "id_orden_compra")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private OrdenCompra ordenCompra;
 
     public PagoCompraCredito() {

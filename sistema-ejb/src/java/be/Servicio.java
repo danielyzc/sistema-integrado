@@ -70,9 +70,9 @@ public class Servicio implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
     @JoinColumn(name = "id_tipo_servicio", referencedColumnName = "id_tipo_servicio")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private TipoServicio tipoServicio;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "servicio", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "servicio", fetch = FetchType.LAZY)
     private List<DetalleServicioProducto> detalleServicioProductoList;
 
     public Servicio() {

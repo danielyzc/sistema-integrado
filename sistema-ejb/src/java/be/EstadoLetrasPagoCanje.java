@@ -46,7 +46,7 @@ public class EstadoLetrasPagoCanje implements Serializable {
     @Size(max = 170)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(mappedBy = "estadoLetrasPagoCanje", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "estadoLetrasPagoCanje", fetch = FetchType.LAZY)
     private List<LetrasPagoCanje> letrasPagoCanjeList;
 
     public EstadoLetrasPagoCanje() {

@@ -311,6 +311,10 @@ public String Precios(){
     return "precios";
 }
 
+public String ReportesEsp(){
+    return "respecializado";
+}
+
 public String ProductosClientes(){
     return "productos_cliente";
 }

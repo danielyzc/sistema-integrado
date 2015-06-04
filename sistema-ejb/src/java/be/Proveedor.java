@@ -77,10 +77,10 @@ public class Proveedor implements Serializable {
     @Size(min = 0, max = 68)
     @Column(name = "correo")
     private String correo;
-    @OneToMany(mappedBy = "proveedor", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "proveedor", fetch = FetchType.LAZY)
     private List<OrdenCompra> ordenCompraList;
     @JoinColumn(name = "id_tipo_proveedor", referencedColumnName = "id_tipo_proveedor")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private TipoProveedor tipoProveedor;
 
     public Proveedor() {

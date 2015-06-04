@@ -45,7 +45,7 @@ public class Negocio implements Serializable {
     @Size(min = 0, max = 350)
     @Column(name = "nombre_negocio")
     private String nombreNegocio;
-    @OneToMany(mappedBy = "negocio", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "negocio", fetch = FetchType.LAZY)
     private List<Tienda> tiendaList;
 
     public Negocio() {

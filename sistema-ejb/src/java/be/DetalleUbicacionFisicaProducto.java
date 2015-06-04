@@ -43,10 +43,10 @@ public class DetalleUbicacionFisicaProducto implements Serializable {
     @Column(name = "cantidad")
     private int cantidad;
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
     @JoinColumn(name = "id_detalle_inventario_ubicacion_fisica", referencedColumnName = "id_detalle_inventario_ubicacion_fisica")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private DetalleInventarioUbicacionFisica detalleInventarioUbicacionFisica;
 
     public DetalleUbicacionFisicaProducto() {

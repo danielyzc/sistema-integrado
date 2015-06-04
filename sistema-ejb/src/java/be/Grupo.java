@@ -52,7 +52,7 @@ public class Grupo implements Serializable {
     @Size(min = 0, max = 100)
     @Column(name = "descripcion_grupo")
     private String descripcionGrupo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "grupo", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "grupo", fetch = FetchType.LAZY)
     private List<GrupoUsuario> grupoUsuarioList;
 
     public Grupo() {

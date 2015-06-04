@@ -40,13 +40,13 @@ public class DetalleInventarioUbicacionFisica implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_detalle_inventario_ubicacion_fisica")
     private Integer idDetalleInventarioUbicacionFisica;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "detalleInventarioUbicacionFisica", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "detalleInventarioUbicacionFisica", fetch = FetchType.LAZY)
     private List<DetalleUbicacionFisicaProducto> detalleUbicacionFisicaProductoList;
     @JoinColumn(name = "id_ubicacion_fisica", referencedColumnName = "id_ubicacion_fisica")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private UbicacionFisica ubicacionFisica;
     @JoinColumn(name = "id_inventario_fisico", referencedColumnName = "id_inventario_fisico")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private InventarioFisico inventarioFisico;
 
     public DetalleInventarioUbicacionFisica() {

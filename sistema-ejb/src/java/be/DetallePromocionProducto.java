@@ -50,10 +50,10 @@ public class DetallePromocionProducto implements Serializable {
     @Column(name = "descuento_porcentaje")
     private BigDecimal descuentoPorcentaje;
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
     @JoinColumn(name = "id_promocion", referencedColumnName = "id_promocion")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Promocion promocion;
 
     public DetallePromocionProducto() {

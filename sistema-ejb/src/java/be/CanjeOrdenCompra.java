@@ -87,13 +87,13 @@ public class CanjeOrdenCompra implements Serializable {
     @Size(min = 0, max = 300)
     @Column(name = "observaciones")
     private String observaciones;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "canjeOrdenCompra", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "canjeOrdenCompra", fetch = FetchType.LAZY)
     private List<LetrasPagoCanje> letrasPagoCanjeList;
     @JoinColumn(name = "id_estado_canje_orden_compra", referencedColumnName = "id_estado_canje_orden_compra")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private EstadoCanjeOrdenCompra estadoCanjeOrdenCompra;
     @JoinColumn(name = "id_orden_compra", referencedColumnName = "id_orden_compra")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private OrdenCompra ordenCompra;
 
     public CanjeOrdenCompra() {

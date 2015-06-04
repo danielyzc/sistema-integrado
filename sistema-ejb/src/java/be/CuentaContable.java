@@ -56,13 +56,13 @@ public class CuentaContable implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
     @JoinColumn(name = "id_sub_elemento", referencedColumnName = "id_sub_elemento")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private SubElemento subElemento;
     @JoinColumn(name = "id_tipo_elemento", referencedColumnName = "id_tipo_elemento")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private TipoElemento tipoElemento;
     @JoinColumn(name = "id_tipo_cuenta_contable", referencedColumnName = "id_tipo_cuenta_contable")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private TipoCuentaContable tipoCuentaContable;
 
     public CuentaContable() {

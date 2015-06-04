@@ -90,29 +90,29 @@ public class FacturaVenta implements Serializable {
     @NotNull
     @Column(name = "total_pagos_credito")
     private BigDecimal totalPagosCredito;
-    @OneToMany(mappedBy = "facturaVenta", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "facturaVenta", fetch = FetchType.LAZY)
     private List<PagoFacturaVentaCredito> pagoFacturaVentaCreditoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "facturaVenta", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "facturaVenta", fetch = FetchType.LAZY)
     private List<DetalleFacturaVentaProducto> detalleFacturaVentaProductoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "facturaVenta", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "facturaVenta", fetch = FetchType.LAZY)
     private List<GuiaRemicion> guiaRemicionList;
     @JoinColumn(name = "id_igv_factura", referencedColumnName = "id_igv_factura")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private IgvFactura igvFactura;
     @JoinColumn(name = "id_estado_venta", referencedColumnName = "id_estado_venta")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private EstadoVenta estadoVenta;
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Cliente cliente;
     @JoinColumn(name = "id_tipo_venta", referencedColumnName = "id_tipo_venta")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private TipoVenta tipoVenta;
     @JoinColumn(name = "id_empleado", referencedColumnName = "id_empleado")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Empleado empleado;
     @JoinColumn(name = "id_tienda", referencedColumnName = "id_tienda")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tienda tienda;
 
     public FacturaVenta() {

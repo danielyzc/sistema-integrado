@@ -52,7 +52,7 @@ public class EstadoOrdenSalidaDetalleAlmacenProductos implements Serializable {
     @Size(min = 0, max = 170)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estadoOrdenSalidaDetalleAlmacenProductos", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estadoOrdenSalidaDetalleAlmacenProductos", fetch = FetchType.LAZY)
     private List<OrdenSalidaDetalleAlmacenProductos> ordenSalidaDetalleAlmacenProductosList;
 
     public EstadoOrdenSalidaDetalleAlmacenProductos() {

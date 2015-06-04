@@ -33,13 +33,14 @@ and open the template in the editor.
   <div class="clr"></div>
   <div class="block_header">
     <div class="slider">
-    <p:growl id="growl" showDetail="true"/>
-    <p:panel header="VENTAS - VENTAS RAPIDAS" >
+    
+    
 
 
 
          <h:form id="frmbtn">
-
+             <p:growl id="growl" showDetail="true"/>
+<p:panel header="VENTAS - VENTAS RAPIDAS" >
 
      <center>
          <h:commandButton title="NUEVA FECHA" image="/images/nuevo.png" action="#{managedBeanVentaRapida.nueva}"
@@ -120,12 +121,14 @@ and open the template in the editor.
            <center>     <h:commandLink  action="#{managedBeanProducto.Volver_Producto}"  >
        <p:graphicImage  value="../images/inicio1.jpg" />
 </h:commandLink></center>
-            </h:form>
+            
+          </p:panel>
+         </h:form>
 
 
 
 
-    </p:panel>
+   
 
     </div>
   </div>

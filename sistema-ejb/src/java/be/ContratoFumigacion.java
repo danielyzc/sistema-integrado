@@ -93,13 +93,13 @@ public class ContratoFumigacion implements Serializable {
     @Column(name = "saldo")
     private BigDecimal saldo;
     @JoinColumn(name = "id_venta", referencedColumnName = "id_venta")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Venta venta;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contratoFumigacion", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contratoFumigacion", fetch = FetchType.LAZY)
     private List<ReporteDesratizacion> reporteDesratizacionList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contratoFumigacion", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contratoFumigacion", fetch = FetchType.LAZY)
     private List<DetalleFumigacionProducto> detalleFumigacionProductoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contratoFumigacion", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contratoFumigacion", fetch = FetchType.LAZY)
     private List<ReporteFumigacion> reporteFumigacionList;
 
     public ContratoFumigacion() {

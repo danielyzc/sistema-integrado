@@ -69,18 +69,18 @@ public class DetalleAlmacenProductosCostos implements Serializable {
     @Column(name = "observaciones")
     private String observaciones;
     @JoinColumn(name = "id_tienda", referencedColumnName = "id_tienda")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tienda tienda;
     @JoinColumn(name = "id_estado_producto_costo_almacen", referencedColumnName = "id_estado_producto_costo_almacen")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private EstadoProductoCostoAlmacen estadoProductoCostoAlmacen;
     @JoinColumn(name = "id_procedencia_producto_almacen", referencedColumnName = "id_procedencia_producto_almacen")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ProcedenciaProductoAlmacen procedenciaProductoAlmacen;
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "detalleAlmacenProductosCostos", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "detalleAlmacenProductosCostos", fetch = FetchType.LAZY)
     private List<OrdenSalidaDetalleAlmacenProductosCostos> ordenSalidaDetalleAlmacenProductosCostosList;
 
     public DetalleAlmacenProductosCostos() {

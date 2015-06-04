@@ -32,13 +32,13 @@ public class DetalleCambioProducto implements Serializable {
     @EmbeddedId
     protected DetalleCambioProductoPK detalleCambioProductoPK;
     @JoinColumn(name = "id_producto_cambiada", referencedColumnName = "id_producto", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
     @JoinColumn(name = "id_producto_cambio", referencedColumnName = "id_producto", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto1;
     @JoinColumn(name = "id_cambio", referencedColumnName = "id_cambio", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Cambio cambio;
 
     public DetalleCambioProducto() {

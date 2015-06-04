@@ -16,7 +16,19 @@
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
+        <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    
+    <mime-mapping> <extension>ico</extension> <mime-type>image/vnd.microsoft.icon</mime-type> </mime-mapping>
+    
+    <context-param>
+        <param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.ajax4jsf.handleViewExpiredOnClient</param-name> 
+        <param-value>true</param-value>     
+    </context-param>
     <session-config>
         <session-timeout>
             30
@@ -39,31 +51,31 @@
     </ejb-local-ref>
     <error-page>
         <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-        <location>/index.jsf</location>
+        <location>/login.xhtml?faces-redirect=true</location>
     </error-page>
-    
+        
     <context-param>
         <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
         <param-value>true</param-value>
     </context-param>
   
     <security-constraint>
-    <web-resource-collection>
-        <web-resource-name>Allowed resources</web-resource-name>
-        <url-pattern>/javax.faces.resource/*</url-pattern>
-    </web-resource-collection>
-    <!-- No Auth Contraint! -->
-</security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Allowed resources</web-resource-name>
+            <url-pattern>/javax.faces.resource/*</url-pattern>
+        </web-resource-collection>
+        <!-- No Auth Contraint! -->
+    </security-constraint>
 
-<security-constraint>
-    <web-resource-collection>
-        <web-resource-name>Allowed resources</web-resource-name>
-        <url-pattern>/css/*</url-pattern>
-    </web-resource-collection>
-    <!-- No Auth Contraint! -->
-</security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Allowed resources</web-resource-name>
+            <url-pattern>/css/*</url-pattern>
+        </web-resource-collection>
+        <!-- No Auth Contraint! -->
+    </security-constraint>
 
-<security-constraint>
+    <security-constraint>
         <web-resource-collection>
             <web-resource-name>AllPages</web-resource-name>
             <url-pattern>/*</url-pattern>

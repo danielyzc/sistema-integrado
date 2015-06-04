@@ -58,10 +58,10 @@ public class StockProductoTiendaOrigen implements Serializable {
     @Column(name = "cantidad_minima_stock")
     private int cantidadMinimaStock;
     @JoinColumn(name = "id_tienda_origen", referencedColumnName = "id_tienda", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tienda tienda;
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
 
     public StockProductoTiendaOrigen() {

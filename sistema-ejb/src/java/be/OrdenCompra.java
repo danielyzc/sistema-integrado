@@ -76,21 +76,21 @@ public class OrdenCompra implements Serializable {
     @Column(name = "observaciones")
     private String observaciones;
     @JoinColumn(name = "id_proveedor", referencedColumnName = "id_proveedor")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Proveedor proveedor;
     @JoinColumn(name = "id_estado_facturacion_orden_compra", referencedColumnName = "id_estado_facturacion_orden_compra")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private EstadoFacturacionOrdenCompra estadoFacturacionOrdenCompra;
     @JoinColumn(name = "id_estado_orden_compra", referencedColumnName = "id_estado_orden_compra")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private EstadoOrdenCompra estadoOrdenCompra;
-    @OneToMany(mappedBy = "ordenCompra", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "ordenCompra", fetch = FetchType.LAZY)
     private List<PagoCompraCredito> pagoCompraCreditoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenCompra", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenCompra", fetch = FetchType.LAZY)
     private List<FacturaCompra> facturaCompraList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenCompra", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenCompra", fetch = FetchType.LAZY)
     private List<DetalleOrdenCompraProducto> detalleOrdenCompraProductoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenCompra", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordenCompra", fetch = FetchType.LAZY)
     private List<CanjeOrdenCompra> canjeOrdenCompraList;
 
     public OrdenCompra() {

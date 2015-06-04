@@ -55,10 +55,10 @@ public class StockMateriaPrimaTiendaOrigen implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
     @JoinColumn(name = "id_tienda_origen", referencedColumnName = "id_tienda", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tienda tienda;
     @JoinColumn(name = "id_materia_prima", referencedColumnName = "id_materia_prima", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private MateriaPrima materiaPrima;
 
     public StockMateriaPrimaTiendaOrigen() {

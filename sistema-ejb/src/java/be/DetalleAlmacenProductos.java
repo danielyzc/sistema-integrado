@@ -84,21 +84,21 @@ public class DetalleAlmacenProductos implements Serializable {
     @Column(name = "descripcion_motivo")
     private String descripcionMotivo;
     @JoinColumn(name = "id_ubicacion_fisica", referencedColumnName = "id_ubicacion_fisica")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private UbicacionFisica ubicacionFisica;
     @JoinColumn(name = "id_tienda", referencedColumnName = "id_tienda")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tienda tienda;
     @JoinColumn(name = "id_procedencia_producto_almacen", referencedColumnName = "id_procedencia_producto_almacen")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ProcedenciaProductoAlmacen procedenciaProductoAlmacen;
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
     @JoinColumn(name = "id_estado_producto_costo_almacen", referencedColumnName = "id_estado_producto_costo_almacen")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private EstadoProductoCostoAlmacen estadoProductoCostoAlmacen;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "detalleAlmacenProductos", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "detalleAlmacenProductos", fetch = FetchType.LAZY)
     private List<OrdenSalidaDetalleAlmacenProductos> ordenSalidaDetalleAlmacenProductosList;
 
     public DetalleAlmacenProductos() {

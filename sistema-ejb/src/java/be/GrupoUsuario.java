@@ -37,10 +37,10 @@ public class GrupoUsuario implements Serializable {
     @Column(name = "id_grupo_usuario")
     private Integer idGrupoUsuario;
     @JoinColumn(name = "id_empleado", referencedColumnName = "id_empleado")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Empleado empleado;
     @JoinColumn(name = "id_grupo", referencedColumnName = "id_grupo")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Grupo grupo;
 
     public GrupoUsuario() {

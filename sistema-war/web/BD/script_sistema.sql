@@ -1364,8 +1364,8 @@ fecha_vencimiento,
 descripcion_motivo,
 id_ubicacion_fisica,
 id_procedencia_producto_almacen,
-id_estado_producto_costo_almacen)
-values (new.id_producto,new.costo_unitario,new.id_tienda,new.cantidad,0,new.cantidad,new.fecha_ingreso,new.fecha_vencimiento ,new.motivo,new.id_ubicacion_fisica,1,1);
+id_estado_producto_costo_almacen,id_ingreso_producto_tienda)
+values (new.id_producto,new.costo_unitario,new.id_tienda,new.cantidad,0,new.cantidad,new.fecha_ingreso,new.fecha_vencimiento ,new.motivo,new.id_ubicacion_fisica,1,1,new.id_ingreso_producto_tienda);
 
  end//
 delimiter ;

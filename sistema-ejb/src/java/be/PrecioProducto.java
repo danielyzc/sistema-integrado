@@ -52,7 +52,7 @@ public class PrecioProducto implements Serializable {
     @Column(name = "precio_producto")
     private BigDecimal precioProducto;
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto", insertable = false, updatable = false)
-    @OneToOne(optional = false, fetch = FetchType.EAGER)
+    @OneToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
 
     public PrecioProducto() {

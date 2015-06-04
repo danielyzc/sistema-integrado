@@ -52,9 +52,9 @@ public class TipoVenta implements Serializable {
     @Size(min = 0, max = 170)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoVenta", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoVenta", fetch = FetchType.LAZY)
     private List<FacturaVenta> facturaVentaList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoVenta", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoVenta", fetch = FetchType.LAZY)
     private List<Venta> ventaList;
 
     public TipoVenta() {

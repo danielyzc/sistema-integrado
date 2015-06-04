@@ -58,9 +58,9 @@ public class Cambio implements Serializable {
     @Column(name = "motivo_cambio")
     private String motivoCambio;
     @JoinColumn(name = "id_venta", referencedColumnName = "id_venta")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Venta venta;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cambio", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cambio", fetch = FetchType.LAZY)
     private List<DetalleCambioProducto> detalleCambioProductoList;
 
     public Cambio() {

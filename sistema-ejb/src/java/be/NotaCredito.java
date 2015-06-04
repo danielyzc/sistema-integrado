@@ -59,7 +59,7 @@ public class NotaCredito implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
     @JoinColumn(name = "id_venta", referencedColumnName = "id_venta")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Venta venta;
 
     public NotaCredito() {

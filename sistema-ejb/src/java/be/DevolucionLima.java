@@ -54,7 +54,7 @@ public class DevolucionLima implements Serializable {
     @Column(name = "motivo_devolucion")
     private String motivoDevolucion;
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
 
     public DevolucionLima() {

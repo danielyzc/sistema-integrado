@@ -52,7 +52,7 @@ public class TipoCliente implements Serializable {
     @Size(min = 0, max = 250)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoCliente", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoCliente", fetch = FetchType.LAZY)
     private List<Cliente> clienteList;
 
     public TipoCliente() {

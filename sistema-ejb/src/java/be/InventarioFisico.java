@@ -63,12 +63,12 @@ public class InventarioFisico implements Serializable {
     @Column(name = "fecha_termino")
     @Temporal(TemporalType.DATE)
     private Date fechaTermino;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "inventarioFisico", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "inventarioFisico", fetch = FetchType.LAZY)
     private List<InventarioInicialSistema> inventarioInicialSistemaList;
     @JoinColumn(name = "id_tienda", referencedColumnName = "id_tienda")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tienda tienda;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "inventarioFisico", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "inventarioFisico", fetch = FetchType.LAZY)
     private List<DetalleInventarioUbicacionFisica> detalleInventarioUbicacionFisicaList;
 
     public InventarioFisico() {

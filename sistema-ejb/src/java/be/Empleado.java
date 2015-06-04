@@ -86,33 +86,33 @@ public class Empleado implements Serializable {
     private BigDecimal sueldoBase;
     @Column(name = "estado_existencia")
     private Integer estadoExistencia;
-    @OneToMany(mappedBy = "empleado", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<PagoFacturaVentaCredito> pagoFacturaVentaCreditoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<GrupoUsuario> grupoUsuarioList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<ReporteDesratizacion> reporteDesratizacionList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<PrestamoProductoTiendaUsuario> prestamoProductoTiendaUsuarioList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<Promocion> promocionList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<PagoCompraCredito> pagoCompraCreditoList;
-    @OneToMany(mappedBy = "empleado", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<FacturaCompra> facturaCompraList;
-    @OneToMany(mappedBy = "empleado", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<PagoVentaCredito> pagoVentaCreditoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<ReporteFumigacion> reporteFumigacionList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<FacturaVenta> facturaVentaList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleado", fetch = FetchType.LAZY)
     private List<Venta> ventaList;
     @JoinColumn(name = "id_tienda", referencedColumnName = "id_tienda")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tienda tienda;
     @JoinColumn(name = "id_tipo_empleado", referencedColumnName = "id_tipo_empleado")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private TipoEmpleado tipoEmpleado;
 
     public Empleado() {

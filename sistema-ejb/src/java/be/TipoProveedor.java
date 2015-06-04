@@ -51,7 +51,7 @@ public class TipoProveedor implements Serializable {
     @Size(min = 0, max = 100)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(mappedBy = "tipoProveedor", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "tipoProveedor", fetch = FetchType.LAZY)
     private List<Proveedor> proveedorList;
 
     public TipoProveedor() {

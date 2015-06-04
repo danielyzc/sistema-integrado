@@ -41,10 +41,10 @@ public class DetalleFormulacionInsumos implements Serializable {
     @Column(name = "proporcion")
     private BigDecimal proporcion;
     @JoinColumn(name = "id_materia_prima", referencedColumnName = "id_materia_prima", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private MateriaPrima materiaPrima;
     @JoinColumn(name = "id_formulacion", referencedColumnName = "id_formulacion", insertable = false, updatable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Formulacion formulacion;
 
     public DetalleFormulacionInsumos() {

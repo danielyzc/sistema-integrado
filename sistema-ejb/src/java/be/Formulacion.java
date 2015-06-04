@@ -64,11 +64,11 @@ public class Formulacion implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "formulacion", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "formulacion", fetch = FetchType.LAZY)
     private List<DetalleFormulacionInsumos> detalleFormulacionInsumosList;
-    @OneToMany(mappedBy = "formulacion", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "formulacion", fetch = FetchType.LAZY)
     private List<ProduccionAlmacen> produccionAlmacenList;
 
     public Formulacion() {

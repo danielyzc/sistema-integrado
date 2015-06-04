@@ -54,7 +54,7 @@ public class InventarioInicialSistema implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaRegistro;
     @JoinColumn(name = "id_inventario_fisico", referencedColumnName = "id_inventario_fisico")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private InventarioFisico inventarioFisico;
 
     public InventarioInicialSistema() {

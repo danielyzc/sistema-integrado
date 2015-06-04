@@ -55,10 +55,10 @@ public class DetalleFumigacionProducto implements Serializable {
     @Column(name = "quedo")
     private BigDecimal quedo;
     @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto producto;
     @JoinColumn(name = "id_contrato_fumigacion", referencedColumnName = "id_contrato_fumigacion")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ContratoFumigacion contratoFumigacion;
 
     public DetalleFumigacionProducto() {

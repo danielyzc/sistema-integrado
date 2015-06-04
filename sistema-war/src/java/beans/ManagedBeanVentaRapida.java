@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package beans;
 
 import bc.DetalleVentaRapidaProductoFacadeLocal;
@@ -31,35 +30,34 @@ import javax.faces.event.ActionEvent;
  */
 @ManagedBean
 @SessionScoped
-public class ManagedBeanVentaRapida implements  Serializable{
+public class ManagedBeanVentaRapida implements Serializable {
+
     @EJB
     private DetalleVentaRapidaProductoFacadeLocal detalleVentaRapidaProductoFacade;
     @EJB
     private VentaRapidaFacadeLocal ventaRapidaFacade;
-
-     @EJB
+    @EJB
     private ProductoFacadeLocal productoFacade;
-private VentaRapida ventaRapida;
-private List<VentaRapida> lista;
-private String codigoBarras="";
-private Date fecha;
-private int estado=0;
-private Producto producto_elegido;
-private Tienda tienda;
-private String nombre_producto="";
-private int cantidad=1;
-private DetalleVentaRapidaProducto detalle;
-private Cliente cliente;
+    private VentaRapida ventaRapida;
+    private List<VentaRapida> lista;
+    private String codigoBarras = "";
+    private Date fecha;
+    private int estado = 0;
+    private Producto producto_elegido;
+    private Tienda tienda;
+    private String nombre_producto = "";
+    private int cantidad = 1;
+    private DetalleVentaRapidaProducto detalle;
+    private Cliente cliente;
+
     public ManagedBeanVentaRapida() {
-        ventaRapida= new VentaRapida();
+        ventaRapida = new VentaRapida();
         fecha = new Date();
         producto_elegido = new Producto();
         tienda = new Tienda();
         detalle = new DetalleVentaRapidaProducto();
         cliente = new Cliente();
     }
-
-   
 
     public int getCantidad() {
         return cantidad;
@@ -70,7 +68,7 @@ private Cliente cliente;
     }
 
     public void setDetalle(DetalleVentaRapidaProducto detalle) {
-     
+
         this.detalle = detalle;
     }
 
@@ -114,25 +112,21 @@ private Cliente cliente;
         this.producto_elegido = producto_elegido;
     }
 
-    
-
-   
-
     public void setCodigoBarras(String codigoBarras) {
         this.codigoBarras = codigoBarras;
     }
 
-    public List<VentaRapida> getLista(){
+    public List<VentaRapida> getLista() {
         try {
             lista = new LinkedList<VentaRapida>();
-            List<VentaRapida> lista_temp =new LinkedList<VentaRapida>();
-       //  System.out.println("TAMAÑO LISTA TEMPORAL: "+lista_temp.size());
-       lista_temp = ventaRapidaFacade.findAll();
+            List<VentaRapida> lista_temp = new LinkedList<VentaRapida>();
+            //  System.out.println("TAMAÑO LISTA TEMPORAL: "+lista_temp.size());
+            lista_temp = ventaRapidaFacade.findAll();
 
-       for(int i=lista_temp.size()-1;i>=0;i--){
-    //   System.out.println("HOLA MUNDO"+i);
-      lista.add(lista_temp.get(i));
-       }
+            for (int i = lista_temp.size() - 1; i >= 0; i--) {
+                //   System.out.println("HOLA MUNDO"+i);
+                lista.add(lista_temp.get(i));
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -152,149 +146,155 @@ private Cliente cliente;
         this.ventaRapida = ventaRapida;
     }
 
-    public String Ventas_rapidas(){
-    return "ventas_rapidas";
+    public String Ventas_rapidas() {
+        return "ventas_rapidas";
     }
 
-public String nueva(){
+    public String nueva() {
 //tienda = new Tienda();
-codigoBarras="";
-return "nueva_venta_rapida";
-}
-public String ingreso_productos(){
-return "ingreso_productos_venta_rapida";
-}
-public String crear(){
-    try {
-        ventaRapida.setFechaVenta(fecha);
-        ventaRapidaFacade.create(ventaRapida);
-    } catch (Exception e) {
+        codigoBarras = "";
+        return "vrapidas";
     }
-    return "ventas_rapidas?faces-redirect=true";
-}
-    public void registrarRapido(){
-    ventaRapida = new VentaRapida();
+
+    public void crearNueva() {
+        ventaRapida = new VentaRapida();
+        codigoBarras = "";
+
+    }
+
+    public String ingreso_productos() {
+        return "ingProdVentaRapida";
+    }
+
+    public String crear() {
         try {
-
-            if(codigoBarras.length()>= 13){
-
-            for(Producto p : productoFacade.findAll() ) {
-            if(p.getNombreProducto().contains(codigoBarras))
-            {
-            producto_elegido = p;
-//            ventaRapida.setProducto(producto);
-            // debe existir por lo menos un cliente
-         //   ventaRapida.setCliente(new Cliente(1));
-         //   ventaRapida.setPrecioVenta(BigDecimal.ZERO);
-            ventaRapida.setTienda(tienda);
-        //    ventaRapida.setVentaRapidaPK(new VentaRapidaPK(codigoBarras,tienda.getIdTienda()));
-
+            ventaRapida.setFechaVenta(fecha);
             ventaRapidaFacade.create(ventaRapida);
-
-          // ventaRapida = detalleInventarioUbicacionFisicaFacade.find(detalleInventarioUbicacionFisica.getIdDetalleInventarioUbicacionFisica());
-
-             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "REGISTRO EXITOSO",  "Se ejecutó con éxito");
-        FacesContext.getCurrentInstance().addMessage(null, message);
-
-            }
- else
-            {
- producto_elegido = new Producto();
- }
-
-            }
-
-      }
-
-
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "REGISTRO EXITOSO", "Se ejecutó con éxito");
+            FacesContext.getCurrentInstance().addMessage(null, message);
         } catch (Exception e) {
-        e.printStackTrace();
-
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "NO SE REGISTRO",  "Se ejecuto con exito");
-        FacesContext.getCurrentInstance().addMessage(null, message);
-
         }
-
-
-
+        return "ventas_rapidas?faces-redirect=true";
     }
 
-public void eliminar_lista_productos(){
-    try {
-
-  //    detalleUbicacionFisicaProductoFacade.remove(detalleUbicacionFisicaProducto);
-   //        detalleInventarioUbicacionFisica = detalleInventarioUbicacionFisicaFacade.find(detalleInventarioUbicacionFisica.getIdDetalleInventarioUbicacionFisica());
-
-      producto_elegido = new Producto();
-      codigoBarras="";
-           FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "ELIMINADO",  "SE SACO EL PRODUCTO DE LA LISTA");
-        FacesContext.getCurrentInstance().addMessage(null, message);
-
-
-    } catch (Exception e) {
-    }
-
-}
-
-
-
-public void buscar(){
+    public void registrarRapido() {
+        ventaRapida = new VentaRapida();
         try {
 
-          //  producto = new Producto();
-            if(codigoBarras.length()>= 13){
+            if (codigoBarras.length() >= 13) {
 
-            for(Producto p : productoFacade.findAll() ) {
-            if(p.getNombreProducto().contains(codigoBarras))
-            {
-                producto_elegido = new Producto();
-            producto_elegido = p;
-nombre_producto = producto_elegido.getNombreProducto();
-             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "PRODUCTO SELECCIONADO",  "");
-        FacesContext.getCurrentInstance().addMessage(null, message);
+                for (Producto p : productoFacade.findAll()) {
+                    if (p.getNombreProducto().contains(codigoBarras)) {
+                        producto_elegido = p;
+//            ventaRapida.setProducto(producto);
+                        // debe existir por lo menos un cliente
+                        //   ventaRapida.setCliente(new Cliente(1));
+                        //   ventaRapida.setPrecioVenta(BigDecimal.ZERO);
+                        ventaRapida.setTienda(tienda);
+                        //    ventaRapida.setVentaRapidaPK(new VentaRapidaPK(codigoBarras,tienda.getIdTienda()));
+
+                        ventaRapidaFacade.create(ventaRapida);
+
+                        // ventaRapida = detalleInventarioUbicacionFisicaFacade.find(detalleInventarioUbicacionFisica.getIdDetalleInventarioUbicacionFisica());
+
+                        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "REGISTRO EXITOSO", "Se ejecutó con éxito");
+                        FacesContext.getCurrentInstance().addMessage(null, message);
+
+                    } else {
+                        producto_elegido = new Producto();
+                    }
+
+                }
 
             }
-            }
-
-          }
 
 
         } catch (Exception e) {
-        e.printStackTrace();
+            e.printStackTrace();
 
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "NO SE REGISTRO",  "Se ejecuto con exito");
-        FacesContext.getCurrentInstance().addMessage(null, message);
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "NO SE REGISTRO", "Se ejecuto con exito");
+            FacesContext.getCurrentInstance().addMessage(null, message);
 
         }
 
-System.out.println("ESTAMOS SACANDO :"+producto_elegido.getIdProducto());
+
 
     }
-public void agregarLista(){
 
-    try {
+    public void eliminar_lista_productos() {
+        try {
 
-        DetalleVentaRapidaProducto det = new DetalleVentaRapidaProducto();
-        det.setCantidad(cantidad);
-        det.setCliente(new Cliente(1));
-        det.setPrecioVenta(BigDecimal.ZERO);
-        System.out.println("JOJOJO" + producto_elegido.getIdProducto());
-        det.setProducto(producto_elegido);
-        det.setVentaRapida(ventaRapida);
+            //    detalleUbicacionFisicaProductoFacade.remove(detalleUbicacionFisicaProducto);
+            //        detalleInventarioUbicacionFisica = detalleInventarioUbicacionFisicaFacade.find(detalleInventarioUbicacionFisica.getIdDetalleInventarioUbicacionFisica());
 
-detalleVentaRapidaProductoFacade.create(det);
-ventaRapida =ventaRapidaFacade.find(ventaRapida.getIdVentaRapida());
+            producto_elegido = new Producto();
+            codigoBarras = "";
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "ELIMINADO", "SE SACO EL PRODUCTO DE LA LISTA");
+            FacesContext.getCurrentInstance().addMessage(null, message);
 
-       FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "AGREGADO CON EXITO",  "");
-        FacesContext.getCurrentInstance().addMessage(null, message);
 
-    } catch (Exception e) {
-        e.printStackTrace();
+        } catch (Exception e) {
+        }
+
     }
 
-}
-public void eliminar_lista()
-    {
+    public void buscar() {
+        try {
+
+            //  producto = new Producto();
+            if (codigoBarras.length() >= 13) {
+
+                for (Producto p : productoFacade.findAll()) {
+                    if (p.getNombreProducto().contains(codigoBarras)) {
+                        producto_elegido = new Producto();
+                        producto_elegido = p;
+                        nombre_producto = producto_elegido.getNombreProducto();
+                        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "PRODUCTO SELECCIONADO", "");
+                        FacesContext.getCurrentInstance().addMessage(null, message);
+
+                    }
+                }
+
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "NO SE REGISTRO", "Se ejecuto con exito");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+        }
+
+        System.out.println("ESTAMOS SACANDO :" + producto_elegido.getIdProducto());
+
+    }
+
+    public void agregarLista() {
+
+        try {
+
+            
+           DetalleVentaRapidaProducto det = new DetalleVentaRapidaProducto();
+            det.setCantidad(cantidad);
+            det.setCliente(new Cliente(1));
+            det.setPrecioVenta(BigDecimal.ZERO);
+            System.out.println("JOJOJO" + producto_elegido.getIdProducto());
+            det.setProducto(producto_elegido);
+            det.setVentaRapida(ventaRapida);
+
+            detalleVentaRapidaProductoFacade.create(det);
+            ventaRapida = ventaRapidaFacade.find(ventaRapida.getIdVentaRapida());
+
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "AGREGADO CON EXITO", "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void eliminar_lista() {
 
         try {
             detalleVentaRapidaProductoFacade.remove(detalle);
@@ -302,36 +302,37 @@ public void eliminar_lista()
         } catch (Exception e) {
             e.printStackTrace();
         }
-}
-public int getCantidadLista(){
-int cant=0;
-    for(DetalleVentaRapidaProducto det:ventaRapida.getDetalleVentaRapidaProductoList())
-    {
-    cant = cant + det.getCantidad();
-    }
-return cant;
-}
-
-public List<DetalleVentaRapidaProducto> getListaProductos(){
-List<DetalleVentaRapidaProducto> lista_retornar = new LinkedList<DetalleVentaRapidaProducto>();
-for(int i=ventaRapida.getDetalleVentaRapidaProductoList().size()-1;i>=0;i--){
-
-lista_retornar.add(ventaRapida.getDetalleVentaRapidaProductoList().get(i));
-}
-
-return lista_retornar;
-}
-
-public void editarDetalle(){
-    try {
-       
-        detalleVentaRapidaProductoFacade.edit(detalle);
-        
-    } catch (Exception e) {
     }
 
-}
+    public int getCantidadLista() {
+        int cant = 0;
+        for (DetalleVentaRapidaProducto det : ventaRapida.getDetalleVentaRapidaProductoList()) {
+            cant = cant + det.getCantidad();
+        }
+        return cant;
+    }
 
-public String volver(){
-return "ventas_rapidas?faces-redirect=true";}
+    public List<DetalleVentaRapidaProducto> getListaProductos() {
+        List<DetalleVentaRapidaProducto> lista_retornar = new LinkedList<DetalleVentaRapidaProducto>();
+        for (int i = ventaRapida.getDetalleVentaRapidaProductoList().size() - 1; i >= 0; i--) {
+
+            lista_retornar.add(ventaRapida.getDetalleVentaRapidaProductoList().get(i));
+        }
+
+        return lista_retornar;
+    }
+
+    public void editarDetalle() {
+        try {
+
+            detalleVentaRapidaProductoFacade.edit(detalle);
+
+        } catch (Exception e) {
+        }
+
+    }
+
+    public String volver() {
+        return "vrapidas?faces-redirect=true";
+    }
 }

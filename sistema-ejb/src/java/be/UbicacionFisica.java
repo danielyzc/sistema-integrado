@@ -52,11 +52,11 @@ public class UbicacionFisica implements Serializable {
     @Size(min = 0, max = 100)
     @Column(name = "descripcion_ubicacion_fisica")
     private String descripcionUbicacionFisica;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ubicacionFisica", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ubicacionFisica", fetch = FetchType.LAZY)
     private List<DetalleAlmacenProductos> detalleAlmacenProductosList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ubicacionFisica", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ubicacionFisica", fetch = FetchType.LAZY)
     private List<IngresoProductoTienda> ingresoProductoTiendaList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ubicacionFisica", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ubicacionFisica", fetch = FetchType.LAZY)
     private List<DetalleInventarioUbicacionFisica> detalleInventarioUbicacionFisicaList;
 
     public UbicacionFisica() {

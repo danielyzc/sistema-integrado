@@ -66,16 +66,16 @@ public class GuiaRemicion implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fechaInicioTranslado;
     @JoinColumn(name = "id_factura_venta", referencedColumnName = "id_factura_venta")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private FacturaVenta facturaVenta;
     @JoinColumn(name = "id_motivo_translado_factura", referencedColumnName = "id_motivo_translado_factura")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private MotivoTransladoFactura motivoTransladoFactura;
     @JoinColumn(name = "id_conductor", referencedColumnName = "id_conductor")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Conductor conductor;
     @JoinColumn(name = "id_unidad_transporte", referencedColumnName = "id_unidad_transporte")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private UnidadTransporte unidadTransporte;
 
     public GuiaRemicion() {

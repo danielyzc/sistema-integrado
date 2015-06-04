@@ -52,9 +52,9 @@ public class ProcedenciaProductoAlmacen implements Serializable {
     @Size(min = 0, max = 170)
     @Column(name = "descripcion")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "procedenciaProductoAlmacen", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "procedenciaProductoAlmacen", fetch = FetchType.LAZY)
     private List<DetalleAlmacenProductosCostos> detalleAlmacenProductosCostosList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "procedenciaProductoAlmacen", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "procedenciaProductoAlmacen", fetch = FetchType.LAZY)
     private List<DetalleAlmacenProductos> detalleAlmacenProductosList;
 
     public ProcedenciaProductoAlmacen() {

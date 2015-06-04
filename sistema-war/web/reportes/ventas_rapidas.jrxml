@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0">
 	<property name="ireport.zoom" value="2.0"/>
-	<property name="ireport.x" value="336"/>
-	<property name="ireport.y" value="384"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="158"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
@@ -11,25 +11,25 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select VR.FECHA_VENTA,C.NOMBRE_CLIENTE, P.NOMBRE_PRODUCTO,DT.PRECIO_VENTA, DT.CANTIDAD from DETALLE_VENTA_RAPIDA_PRODUCTO DT
-INNER JOIN  VENTA_RAPIDA VR ON DT.ID_VENTA_RAPIDA=VR.ID_VENTA_RAPIDA
-INNER JOIN CLIENTE C ON DT.ID_CLIENTE = C.ID_CLIENTE INNER JOIN PRODUCTO P
-ON DT.ID_PRODUCTO = P.ID_PRODUCTO
-where VR.ID_VENTA_RAPIDA = $P{id_venta_rapida}]]>
+		<![CDATA[select vr.fecha_venta,c.nombre_cliente, p.nombre_producto,dt.precio_venta, dt.cantidad from detalle_venta_rapida_producto dt
+inner join  venta_rapida vr on dt.id_venta_rapida=vr.id_venta_rapida
+inner join cliente c on dt.id_cliente = c.id_cliente inner join producto p
+on dt.id_producto = p.id_producto
+where vr.id_venta_rapida = $P{id_venta_rapida}]]>
 	</queryString>
-	<field name="FECHA_VENTA" class="java.sql.Date"/>
-	<field name="NOMBRE_CLIENTE" class="java.lang.String"/>
-	<field name="NOMBRE_PRODUCTO" class="java.lang.String"/>
-	<field name="PRECIO_VENTA" class="java.math.BigDecimal"/>
-	<field name="CANTIDAD" class="java.lang.Integer"/>
+	<field name="fecha_venta" class="java.sql.Date"/>
+	<field name="nombre_cliente" class="java.lang.String"/>
+	<field name="nombre_producto" class="java.lang.String"/>
+	<field name="precio_venta" class="java.math.BigDecimal"/>
+	<field name="cantidad" class="java.lang.Integer"/>
 	<variable name="CANTIDAD_1" class="java.lang.Integer" resetType="Group" resetGroup="FECHA_VENTA" calculation="Sum">
-		<variableExpression><![CDATA[$F{CANTIDAD}]]></variableExpression>
+		<variableExpression><![CDATA[$F{cantidad}]]></variableExpression>
 	</variable>
 	<variable name="PRECIO_VENTA_1" class="java.math.BigDecimal" resetType="Group" resetGroup="FECHA_VENTA" calculation="Sum">
-		<variableExpression><![CDATA[$F{PRECIO_VENTA}]]></variableExpression>
+		<variableExpression><![CDATA[$F{precio_venta}]]></variableExpression>
 	</variable>
 	<group name="FECHA_VENTA">
-		<groupExpression><![CDATA[$F{FECHA_VENTA}]]></groupExpression>
+		<groupExpression><![CDATA[$F{fecha_venta}]]></groupExpression>
 		<groupHeader>
 			<band height="56">
 				<textField pattern="dd/MM/yyyy">
@@ -37,7 +37,7 @@ where VR.ID_VENTA_RAPIDA = $P{id_venta_rapida}]]>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
-					<textFieldExpression class="java.util.Date"><![CDATA[$F{FECHA_VENTA}]]></textFieldExpression>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{fecha_venta}]]></textFieldExpression>
 				</textField>
 				<rectangle>
 					<reportElement mode="Opaque" x="3" y="3" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
@@ -150,21 +150,21 @@ where VR.ID_VENTA_RAPIDA = $P{id_venta_rapida}]]>
 					<textElement>
 						<font fontName="SansSerif" size="8"/>
 					</textElement>
-					<textFieldExpression class="java.lang.String"><![CDATA[$F{NOMBRE_PRODUCTO}]]></textFieldExpression>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{nombre_producto}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement style="Detail" x="400" y="0" width="65" height="15"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="SansSerif" size="8"/>
 					</textElement>
-					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{PRECIO_VENTA}]]></textFieldExpression>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{precio_venta}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement style="Detail" x="3" y="0" width="175" height="15"/>
 					<textElement>
 						<font fontName="SansSerif" size="8"/>
 					</textElement>
-					<textFieldExpression class="java.lang.String"><![CDATA[$F{NOMBRE_CLIENTE}]]></textFieldExpression>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{nombre_cliente}]]></textFieldExpression>
 				</textField>
 			</frame>
 			<line>
@@ -178,7 +178,7 @@ where VR.ID_VENTA_RAPIDA = $P{id_venta_rapida}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="8"/>
 				</textElement>
-				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{cantidad}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
